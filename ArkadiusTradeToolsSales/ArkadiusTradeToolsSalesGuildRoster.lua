@@ -269,9 +269,37 @@ function ArkadiusTradeToolsSales.GuildRoster:Enable(enable)
         )
         comboBox:AddItem(
             {name = L["ATT_STR_30_DAYS"], callback = callback, NewerThanTimeStamp = function()
+                    return ArkadiusTradeTools:GetStartOfDay(-30)
+                end, OlderThanTimeStamp = function()
+                    return GetTimeStamp()
+                end}
+        )
+        comboBox:AddItem(
+            {name = L["ATT_STR_ALL_TIME"], callback = callback, NewerThanTimeStamp = function()
                     return 0
                 end, OlderThanTimeStamp = function()
                     return GetTimeStamp()
+                end}
+        )
+        comboBox:AddItem(
+            {name = L["ATT_STR_THIS_MONTH"], callback = callback, NewerThanTimeStamp = function()
+                    return ArkadiusTradeTools:GetStartOfMonth(0)
+                end, OlderThanTimeStamp = function()
+                    return GetTimeStamp()
+                end}
+        )
+        comboBox:AddItem(
+            {name = L["ATT_STR_LAST_MONTH"], callback = callback, NewerThanTimeStamp = function()
+                    return ArkadiusTradeTools:GetStartOfMonth(-1)
+                end, OlderThanTimeStamp = function()
+                    return ArkadiusTradeTools:GetStartOfMonth(0) - 1
+                end}
+        )
+        comboBox:AddItem(
+            {name = L["ATT_STR_PRIOR_MONTH"], callback = callback, NewerThanTimeStamp = function()
+                    return ArkadiusTradeTools:GetStartOfMonth(-2)
+                end, OlderThanTimeStamp = function()
+                    return ArkadiusTradeTools:GetStartOfMonth(-1) - 1
                 end}
         )
 

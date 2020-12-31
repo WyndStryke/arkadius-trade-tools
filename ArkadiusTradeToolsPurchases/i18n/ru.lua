@@ -21,6 +21,11 @@ local localization =
     ATT_STR_14_DAYS                  = "14 дней",
     ATT_STR_30_DAYS                  = "30 дней",
 
+    ATT_STR_THIS_MONTH               = "Текущий месяц",
+    ATT_STR_LAST_MONTH               = "Прошлый месяц", 
+    ATT_STR_PRIOR_MONTH              = "Прошлый месяц",
+    ATT_STR_ALL_TIME                 = "Все время",
+
     ATT_STR_KEEP_PURCHASES_FOR_DAYS  = "Хранить историю покупок x дней",
 
     ATT_STR_FILTER_TEXT_TOOLTIP      = "Поиск по игроку-, гильдии- или предмету",

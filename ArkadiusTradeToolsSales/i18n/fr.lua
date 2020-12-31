@@ -25,6 +25,11 @@ local localization =
     ATT_STR_14_DAYS                         = "14 jours",
     ATT_STR_30_DAYS                         = "30 jours",
 
+    ATT_STR_THIS_MONTH                      = "Cette mois",
+    ATT_STR_LAST_MONTH                      = "Le mois dernier", 
+    ATT_STR_PRIOR_MONTH                     = "Il y a deux mois",
+    ATT_STR_ALL_TIME                        = "Tout le temps",
+
     ATT_STR_NO_PRICE                        = "Pas de Prix",
     ATT_STR_AVERAGE_PRICE                   = "Prix moyen",
     ATT_STR_TOTAL                           = "Total",

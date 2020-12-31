@@ -23,6 +23,11 @@ local localization =
     ATT_STR_10_DAYS                  = "10 Tage",
     ATT_STR_14_DAYS                  = "14 Tage",
     ATT_STR_30_DAYS                  = "30 Tage",
+   
+    ATT_STR_THIS_MONTH               = "Diesen Monat",
+    ATT_STR_LAST_MONTH               = "Letzten Monat", 
+    ATT_STR_PRIOR_MONTH              = "Vorletzter Monat",
+    ATT_STR_ALL_TIME                 = "Alle Zeit",
 
     ATT_STR_KEEP_EXPORTS_FOR_DAYS    = "Behalte Exporte für x Tage",
 

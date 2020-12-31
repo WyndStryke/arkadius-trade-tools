@@ -19,6 +19,11 @@ local localization =
     ATT_STR_14_DAYS                  = "14 Tage",
     ATT_STR_30_DAYS                  = "30 Tage",
 
+    ATT_STR_THIS_MONTH               = "Diesen Monat",
+    ATT_STR_LAST_MONTH               = "Letzten Monat", 
+    ATT_STR_PRIOR_MONTH              = "Vorletzter Monat",
+    ATT_STR_ALL_TIME                 = "Alle Zeit",
+
     ATT_STR_FILTER_TEXT_TOOLTIP      = "Textsuche nach User- oder Gildennamen",
     ATT_STR_FILTER_SUBSTRING_TOOLTIP = "Schalte zwischen Suche nach exaktem String oder Teilstring um. Groß- und Kleinschreibung wird in beiden Fällen ignoriert.",
 }

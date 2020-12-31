@@ -500,6 +500,28 @@ function ArkadiusTradeTools:GetStartOfWeek(relativeWeek, useTradeWeek)
   return result
 end
 
+
+--- Returns the UTC timestamp for the start of the calendar month on the client PC (maximum offset +/- 12 months) ---
+function ArkadiusTradeTools:GetStartOfMonth(relativeMonth)
+
+  local thisYear = os.date("%Y")
+
+  relativeMonth = relativeMonth or 0
+  local thisMonth = os.date("%m") + relativeMonth
+  if (thisMonth < 1) then
+    thisMonth = thisMonth + 12
+    thisYear = thisYear - 1
+  elseif (thisMonth > 12) then
+    thisMonth = thisMonth - 12
+    thisYear = thisYear + 1
+  end
+  
+  local thisDay = 1
+
+  return os.time{year=thisYear, month=thisMonth, day=thisDay, hour=0, min=0, sec=0}
+end
+
+
 function ArkadiusTradeTools:GetGuildColor(guildName)
   local color = ZO_ColorDef:New(1, 1, 1, 1)
 

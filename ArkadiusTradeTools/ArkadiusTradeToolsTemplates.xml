@@ -239,7 +239,7 @@
             </OnInitialized>
             <Controls>
                 <Slider name="$(parent)Slider" step="1" inherits="ZO_Slider">
-                    <Limits min="1" max="30" />
+                    <Limits min="1" max="92" />
                     <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="0"/>
                     <Anchor point="BOTTOMRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="0" offsetY="16"/>
                 </Slider>
@@ -247,7 +247,7 @@
                     <Anchor point="TOPLEFT" relativeTo="$(parent)Slider" relativePoint="BOTTOMLEFT" offsetX="0" offsetY="0"/>
                     <Anchor point="BOTTOMLEFT" relativeTo="$(parent)" relativePoint="BOTTOMLEFT" offsetX="0" offsetY="0"/>
                 </Label>
-                <Label name="$(parent)Max" text="30" resizeToFitDescendents="true" wrapMode="ELLIPSIS" inheritAlpha="true" verticalAlignment="CENTER" horizontalAlignment="RIGHT" font="$(MEDIUM_FONT)|16">
+                <Label name="$(parent)Max" text="92" resizeToFitDescendents="true" wrapMode="ELLIPSIS" inheritAlpha="true" verticalAlignment="CENTER" horizontalAlignment="RIGHT" font="$(MEDIUM_FONT)|16">
                     <Anchor point="TOPRIGHT" relativeTo="$(parent)Slider" relativePoint="BOTTOMRIGHT" offsetX="0" offsetY="0"/>
                     <Anchor point="BOTTOMRIGHT" relativeTo="$(parent)" relativePoint="BOTTOMRIGHT" offsetX="0" offsetY="0"/>
                 </Label>

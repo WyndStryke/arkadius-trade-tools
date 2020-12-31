@@ -232,7 +232,11 @@ function ArkadiusTradeToolsPurchases:Initialize()
     self.frame.filterBar.Time:AddItem({name = L["ATT_STR_7_DAYS"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfDay(-7) end, OlderThanTimeStamp = function() return GetTimeStamp() end})
     self.frame.filterBar.Time:AddItem({name = L["ATT_STR_10_DAYS"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfDay(-10) end, OlderThanTimeStamp = function() return GetTimeStamp() end})
     self.frame.filterBar.Time:AddItem({name = L["ATT_STR_14_DAYS"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfDay(-14) end, OlderThanTimeStamp = function() return GetTimeStamp() end})
-    self.frame.filterBar.Time:AddItem({name = L["ATT_STR_30_DAYS"], callback = callback, NewerThanTimeStamp = function() return 0 end, OlderThanTimeStamp = function() return GetTimeStamp() end})
+    self.frame.filterBar.Time:AddItem({name = L["ATT_STR_30_DAYS"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfDay(-30) end, OlderThanTimeStamp = function() return GetTimeStamp() end})
+    self.frame.filterBar.Time:AddItem({name = L["ATT_STR_ALL_TIME"], callback = callback, NewerThanTimeStamp = function() return 0 end, OlderThanTimeStamp = function() return GetTimeStamp() end})
+    self.frame.filterBar.Time:AddItem({name = L["ATT_STR_THIS_MONTH"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfMonth(0) end, OlderThanTimeStamp = function() return GetTimeStamp() end})
+    self.frame.filterBar.Time:AddItem({name = L["ATT_STR_LAST_MONTH"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfMonth(-1) end, OlderThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfMonth(0) - 1 end})
+    self.frame.filterBar.Time:AddItem({name = L["ATT_STR_PRIOR_MONTH"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfMonth(-2) end, OlderThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfMonth(-1) - 1 end})
     self.frame.filterBar.Time:SelectByIndex(Settings.filters.timeSelection)
     self.frame.filterBar.Text.OnChanged = function(text) self.list:RefreshFilters() end
     self.frame.filterBar.Text.tooltip:SetContent(L["ATT_STR_FILTER_TEXT_TOOLTIP"])
@@ -252,7 +256,7 @@ function ArkadiusTradeToolsPurchases:GetSettingsMenu()
     local settingsMenu = {}
 
     table.insert(settingsMenu, {type = "header", name = L["ATT_STR_PURCHASES"]})
-    table.insert(settingsMenu, {type = "slider", name = L["ATT_STR_KEEP_PURCHASES_FOR_DAYS"], min = 1, max = 30, getFunc = function() return Settings.keepDataDays end, setFunc = function(value) Settings.keepDataDays = value end})
+    table.insert(settingsMenu, {type = "slider", name = L["ATT_STR_KEEP_PURCHASES_FOR_DAYS"], min = 1, max = 92, getFunc = function() return Settings.keepDataDays end, setFunc = function(value) Settings.keepDataDays = value end})
     table.insert(settingsMenu, {type = "custom"})
 
     return settingsMenu

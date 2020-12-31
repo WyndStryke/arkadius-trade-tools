@@ -289,7 +289,11 @@ function ArkadiusTradeToolsSales:Initialize(serverName, displayName)
     self.frame.filterBar.Time:AddItem({name = L["ATT_STR_7_DAYS"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfDay(-7) end, OlderThanTimeStamp = function() return GetTimeStamp() end})
     self.frame.filterBar.Time:AddItem({name = L["ATT_STR_10_DAYS"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfDay(-10) end, OlderThanTimeStamp = function() return GetTimeStamp() end})
     self.frame.filterBar.Time:AddItem({name = L["ATT_STR_14_DAYS"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfDay(-14) end, OlderThanTimeStamp = function() return GetTimeStamp() end})
-    self.frame.filterBar.Time:AddItem({name = L["ATT_STR_30_DAYS"], callback = callback, NewerThanTimeStamp = function() return 0 end, OlderThanTimeStamp = function() return GetTimeStamp() end})
+    self.frame.filterBar.Time:AddItem({name = L["ATT_STR_30_DAYS"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfDay(-30) end, OlderThanTimeStamp = function() return GetTimeStamp() end})
+    self.frame.filterBar.Time:AddItem({name = L["ATT_STR_ALL_TIME"], callback = callback, NewerThanTimeStamp = function() return 0 end, OlderThanTimeStamp = function() return GetTimeStamp() end})
+    self.frame.filterBar.Time:AddItem({name = L["ATT_STR_THIS_MONTH"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfMonth(0) end, OlderThanTimeStamp = function() return GetTimeStamp() end})
+    self.frame.filterBar.Time:AddItem({name = L["ATT_STR_LAST_MONTH"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfMonth(-1) end, OlderThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfMonth(0) - 1 end})
+    self.frame.filterBar.Time:AddItem({name = L["ATT_STR_PRIOR_MONTH"], callback = callback, NewerThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfMonth(-2) end, OlderThanTimeStamp = function() return ArkadiusTradeTools:GetStartOfMonth(-1) - 1 end})
     self.frame.filterBar.Time:SelectByIndex(Settings.filters.timeSelection)
     self.frame.filterBar.Text.OnChanged = function(text) self.list:RefreshFilters() end
     self.frame.filterBar.Text:SetText(displayName:lower())
@@ -329,7 +333,7 @@ function ArkadiusTradeToolsSales:GetSettingsMenu()
     table.insert(settingsMenu, {type = "description", text = L["ATT_STR_KEEP_SALES_FOR_DAYS"]})
 
     for _, guildName in pairs(guildNames) do
-        table.insert(settingsMenu, {type = "slider", name = guildName, min = 1, max = 30, getFunc = function() return Settings.guilds[guildName].keepSalesForDays end, setFunc = function(value) Settings.guilds[guildName].keepSalesForDays = value end})
+        table.insert(settingsMenu, {type = "slider", name = guildName, min = 1, max = 92, getFunc = function() return Settings.guilds[guildName].keepSalesForDays end, setFunc = function(value) Settings.guilds[guildName].keepSalesForDays = value end})
     end
 
     table.insert(settingsMenu, {type = "custom"})
@@ -359,7 +363,7 @@ function ArkadiusTradeToolsSales:LoadSettings()
     for guildName, _ in pairs(TemporaryVariables.guildNamesLowered) do
         Settings.guilds[guildName] = Settings.guilds[guildName] or {}
 
-        if ((not Settings.guilds[guildName].keepSalesForDays) or ((Settings.guilds[guildName].keepSalesForDays < 1) and (Settings.guilds[guildName].keepSalesForDays > 30))) then
+        if ((not Settings.guilds[guildName].keepSalesForDays) or ((Settings.guilds[guildName].keepSalesForDays < 1) and (Settings.guilds[guildName].keepSalesForDays > 92))) then
             Settings.guilds[guildName].keepSalesForDays = DefaultSettings.keepSalesForDays
         end
     end

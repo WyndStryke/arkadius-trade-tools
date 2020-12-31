@@ -25,6 +25,11 @@ local localization =
     ATT_STR_14_DAYS                         = "14 дней",
     ATT_STR_30_DAYS                         = "30 дней",
 
+    ATT_STR_THIS_MONTH                      = "Текущий месяц",
+    ATT_STR_LAST_MONTH                      = "Прошлый месяц", 
+    ATT_STR_PRIOR_MONTH                     = "Прошлый месяц",
+    ATT_STR_ALL_TIME                        = "Все время",
+
     ATT_STR_NO_PRICE                        = "Нет цены",
     ATT_STR_AVERAGE_PRICE                   = "Средняя цена",
     ATT_STR_TOTAL                           = "Cуммарный",
